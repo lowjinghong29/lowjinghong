@@ -61,9 +61,9 @@
       const box = landscape
         ? Math.min(vw * 0.5, vh * 0.5, 520)     // leave room for bottom name block
         : phone
-          ? Math.min(vw * 0.96, vh * 0.5, 560)  // phones: fill width, cap height
+          ? Math.min(vw * 0.9, vh * 0.46, 520)  // phones: prominent but framed
           : tablet
-            ? Math.min(vw * 0.86, vh * 0.58, 680) // iPad portrait: larger presence
+            ? Math.min(vw * 0.82, vh * 0.56, 660) // iPad portrait
             : Math.min(vw * 0.78, vh * 0.64, 700);
       // monospace cell aspect ~0.56 (w/h). keep sculpture square-ish.
       cols = Math.max(64, Math.min(150, Math.round(box / 7)));
@@ -78,9 +78,9 @@
       const rpx = Math.max(220, Math.round(box * 0.6));
       renderer.setSize(rpx, Math.round(rpx * (rows / cols) / 0.52), false);
       camera.aspect = 1;
-      // pull the camera closer on smaller screens so the knot fills the
-      // frame with the same presence it has on desktop.
-      camera.position.z = phone ? 6.6 : tablet ? 7.4 : 9;
+      // keep the whole knot inside the frustum at every rotation; closer
+      // than ~8 clips the knot's extent on small screens and looks noisy.
+      camera.position.z = (phone || tablet) ? 8.2 : 9;
       camera.updateProjectionMatrix();
     }
     layout();
