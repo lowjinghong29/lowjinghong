@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Low Jing Hong — Software Engineer</title>
+  <meta name="description" content="Low Jing Hong — Software Engineer building production full-stack systems, AI products, and large-scale SEO infrastructure." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Loader -->
+  <div id="loader">
+    <span class="loader__txt">LOW JING HONG</span>
+    <span class="loader__pct" id="loaderPct">0</span>
+    <span class="loader__hint">INITIALISING RENDERER</span>
+  </div>
+
+  <!-- Screen overlay (refined frame + scanlines) -->
+  <div class="crt" aria-hidden="true">
+    <div class="crt__scan"></div>
+    <div class="crt__vignette"></div>
+    <div class="crt__glow"></div>
+  </div>
+
+  <!-- Nav -->
+  <header class="nav" id="nav">
+    <a href="#hero" class="nav__logo">LJH<i>_</i></a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#work">WORK</a>
+      <a href="#about">ABOUT</a>
+      <a href="#stack">STACK</a>
+      <a href="#path">PATH</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
+    <button class="nav__menu" id="navMenu" aria-label="Menu">MENU</button>
+  </header>
+
+  <!-- Mobile menu -->
+  <div class="menu" id="menu" aria-hidden="true">
+    <a href="#work">WORK</a>
+    <a href="#about">ABOUT</a>
+    <a href="#stack">STACK</a>
+    <a href="#path">PATH</a>
+    <a href="#contact">CONTACT</a>
+  </div>
+
+  <main>
+
+    <!-- HERO — CRT enter screen with ASCII sculpture -->
+    <section class="hero" id="hero">
+      <div class="hero__corner hero__corner--tl">
+        <span class="avail"><i></i>AVAILABLE FOR WORK</span>
+        <span>KUALA LUMPUR · MYT</span>
+      </div>
+      <div class="hero__corner hero__corner--tr">
+        <span id="hudClock">--:--:--</span>
+        <span>FULL-STACK · AI · SEO</span>
+      </div>
+
+      <!-- ASCII render target -->
+      <pre id="ascii" class="ascii" aria-hidden="true"></pre>
+
+      <div class="hero__center">
+        <h1 class="hero__name">
+          <span data-scramble>LOW JING HONG</span>
+        </h1>
+        <p class="hero__role" data-scramble>SOFTWARE&nbsp;ENGINEER</p>
+        <div class="hero__enter">
+          <p class="hero__tag">Production systems, shipped solo — full-stack, AI &amp; SEO.</p>
+          <a href="#about" class="scrollcue" aria-label="Scroll to content"><span>SCROLL</span><i></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>FULL-STACK</span><i>✦</i><span>AI · ML</span><i>✦</i><span>SEO ENGINEERING</span><i>✦</i><span>DEVOPS</span><i>✦</i><span>TESTING</span><i>✦</i><span>SECURITY</span><i>✦</i>
+        <span>FULL-STACK</span><i>✦</i><span>AI · ML</span><i>✦</i><span>SEO ENGINEERING</span><i>✦</i><span>DEVOPS</span><i>✦</i><span>TESTING</span><i>✦</i><span>SECURITY</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- STATEMENT -->
+    <section class="statement">
+      <p data-reveal><span class="brace">Every system I ship is engineered with <b>purpose</b> — built to scale, measured in production, and trusted by thousands of users</span></p>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about">
+      <div class="section__head"><span class="idx">[ 01 ] ABOUT</span></div>
+      <div class="about__grid">
+        <div class="about__col">
+          <p class="about__lead" data-reveal>
+            A software engineer operating across the full stack —
+            <em>from shader-driven interfaces to managed Postgres clusters</em>.
+            I single-handedly design, build and ship production platforms, AI-powered
+            products, and large-scale SEO systems used by thousands.
+          </p>
+          <dl class="about__meta" data-reveal>
+            <div><dt>ROLE</dt><dd>Full-Stack · AI · SEO · DevOps</dd></div>
+            <div><dt>DEGREE</dt><dd>B.Sc Software Engineering — CGPA 3.9862</dd></div>
+            <div><dt>LANGUAGES</dt><dd>Mandarin · English · Bahasa Melayu</dd></div>
+            <div><dt>BASED</dt><dd>Kuala Lumpur, Malaysia</dd></div>
+          </dl>
+        </div>
+        <div class="about__stats">
+          <div class="stat" data-reveal><span class="stat__num" data-count="3.9862" data-dec="4">0</span><span class="stat__label">SOFTWARE ENG. CGPA</span></div>
+          <div class="stat" data-reveal><span class="stat__num" data-count="10" data-suf="+">0</span><span class="stat__label">AI TOOLS SHIPPED</span></div>
+          <div class="stat" data-reveal><span class="stat__num" data-count="54724">0</span><span class="stat__label">DB ROWS MIGRATED</span></div>
+          <div class="stat" data-reveal><span class="stat__num" data-count="322" data-suf="+">0</span><span class="stat__label">AUTOMATED TESTS</span></div>
+        </div>
+      </div>
+
+      <!-- CRT showreel monitor -->
+      <div class="monitor" data-reveal>
+        <div class="monitor__screen">
+          <video id="showreel" src="assets/showreel.mp4" muted playsinline preload="auto"></video>
+          <div class="monitor__scan"></div>
+          <div class="monitor__vig"></div>
+        </div>
+        <div class="monitor__bar">
+          <span class="rec">REC</span>
+          <span>SHOWREEL.MP4 — ABSTRACT / MONOCHROME</span>
+          <span>SCROLL ▸ SCRUB</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="section work" id="work">
+      <div class="section__head">
+        <span class="idx">[ 02 ] SELECTED WORK</span>
+        <h2 class="section__title" data-reveal>Things I’ve built<br/>&amp; shipped.</h2>
+      </div>
+      <div class="work__list">
+        <a class="proj" href="#contact" data-reveal>
+          <span class="proj__no">01</span>
+          <div class="proj__body">
+            <h3 class="proj__name">SuperJobs.my</h3>
+            <p class="proj__desc">Malaysia’s job platform — 5,689+ live listings and up to 10,218 indexed URLs. Built the full SEO engine: 10 schema types, 84+ content pages (~48k words), GTM (79 tags) + GA4 (47 dimensions), and led traffic recovery after a mass de-indexing incident.</p>
+            <div class="proj__tags"><span>NEXT.JS</span><span>POSTGRESQL</span><span>TECHNICAL SEO</span><span>SCHEMA</span></div>
+          </div>
+          <span class="proj__go" aria-hidden="true">↗</span>
+        </a>
+        <a class="proj" href="#contact" data-reveal>
+          <span class="proj__no">02</span>
+          <div class="proj__body">
+            <h3 class="proj__name">SuperCFO</h3>
+            <p class="proj__desc">AI-powered financial SaaS — built 10+ AI tools from scratch and a full admin dashboard (10 modules, 35+ charts, 9 analytics tabs) with a cross-source Insights Engine. Integrated QuickBooks / Xero / Google Drive over OAuth with streaming LLM features.</p>
+            <div class="proj__tags"><span>REACT</span><span>NODE</span><span>OPENAI · GEMINI · ANTHROPIC</span><span>OAUTH</span></div>
+          </div>
+          <span class="proj__go" aria-hidden="true">↗</span>
+        </a>
+        <a class="proj" href="#contact" data-reveal>
+          <span class="proj__no">03</span>
+          <div class="proj__body">
+            <h3 class="proj__name">Database &amp; Infrastructure</h3>
+            <p class="proj__desc">Migrated the entire stack Supabase → DigitalOcean Postgres — 25 tables, 54,724 rows, 43 functions, 73 indexes, 39 FK constraints — zero-downtime in Docker behind Nginx. Cut the JS bundle 35% (424KB → 277KB) and images 77%.</p>
+            <div class="proj__tags"><span>DOCKER</span><span>NGINX</span><span>POSTGRES</span><span>CI/CD</span></div>
+          </div>
+          <span class="proj__go" aria-hidden="true">↗</span>
+        </a>
+        <a class="proj" href="#contact" data-reveal>
+          <span class="proj__no">04</span>
+          <div class="proj__body">
+            <h3 class="proj__name">Quality &amp; Security Engineering</h3>
+            <p class="proj__desc">Authored 322+ automated tests including a 181-test SEO audit suite. Hardened production with a central error sanitizer across 48 files, CSP / HSTS, CSRF, rate-limiting and pre-commit secret hooks — and led root-cause response on a Google Cloud credential incident.</p>
+            <div class="proj__tags"><span>PLAYWRIGHT</span><span>SECURITY</span><span>INCIDENT RESPONSE</span><span>CI</span></div>
+          </div>
+          <span class="proj__go" aria-hidden="true">↗</span>
+        </a>
+        <a class="proj" href="#contact" data-reveal>
+          <span class="proj__no">05</span>
+          <div class="proj__body">
+            <h3 class="proj__name">AI Training &amp; Enablement</h3>
+            <p class="proj__desc">Facilitated corporate AI-automation (n8n) training in Sibu and in Penang with Xilnex — built the learning materials and ran the sessions. Produced marketing video ads end-to-end with an AI avatar + voiceover + editing pipeline.</p>
+            <div class="proj__tags"><span>n8n</span><span>LLM</span><span>TRAINING</span><span>VIDEO PRODUCTION</span></div>
+          </div>
+          <span class="proj__go" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- STACK -->
+    <section class="section stack" id="stack">
+      <div class="section__head">
+        <span class="idx">[ 03 ] CAPABILITIES</span>
+        <h2 class="section__title" data-reveal>A wide, deep<br/>technical surface.</h2>
+      </div>
+      <div class="stack__grid">
+        <div class="cap" data-reveal><h4>FULL-STACK</h4><p>React · Next.js · Node · Express · Laravel · REST</p></div>
+        <div class="cap" data-reveal><h4>AI / ML</h4><p>OpenAI · Gemini · Anthropic · TensorFlow · Keras</p></div>
+        <div class="cap" data-reveal><h4>SEO ENGINEERING</h4><p>Schema · Sitemaps · Core Web Vitals · GA4 · GTM</p></div>
+        <div class="cap" data-reveal><h4>DATABASE</h4><p>PostgreSQL · MySQL · SQLite · Supabase · RLS</p></div>
+        <div class="cap" data-reveal><h4>DEVOPS</h4><p>Docker · Nginx · DigitalOcean · Vercel · CI/CD</p></div>
+        <div class="cap" data-reveal><h4>TESTING</h4><p>Playwright · Selenium · 322+ E2E tests</p></div>
+        <div class="cap" data-reveal><h4>SECURITY</h4><p>CSP · CSRF · Rate-limit · Error sanitizing</p></div>
+        <div class="cap" data-reveal><h4>AUTOMATION</h4><p>n8n · Cron · Puppeteer · Telegram bots</p></div>
+      </div>
+    </section>
+
+    <!-- PATH -->
+    <section class="section path" id="path">
+      <div class="section__head">
+        <span class="idx">[ 04 ] PATH</span>
+        <h2 class="section__title" data-reveal>The route<br/>so far.</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl" data-reveal><span class="tl__year">2026</span><div class="tl__body"><h4>Software Engineer — SuperJobs.my &amp; SuperCFO</h4><p>Operating as full-stack engineer, SEO specialist, DevOps engineer and technical trainer — simultaneously.</p></div></div>
+        <div class="tl" data-reveal><span class="tl__year">2025</span><div class="tl__body"><h4>B.Sc Software Engineering — TARUMT</h4><p>Graduated with a CGPA of 3.9862. Water polo · basketball · volleyball athlete.</p></div></div>
+        <div class="tl" data-reveal><span class="tl__year">2024</span><div class="tl__body"><h4>Diploma in Computer Science — TARUMT</h4><p>CGPA 3.95. Project Manager of the Game Carnival event.</p></div></div>
+        <div class="tl" data-reveal><span class="tl__year">2023</span><div class="tl__body"><h4>Software Tester — Radium Development Berhad</h4><p>Selenium automation, test planning and stakeholder reporting.</p></div></div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="section__head"><span class="idx">[ 05 ] CONTACT</span></div>
+      <h2 class="contact__big" data-reveal>Let’s build<br/><span class="accent" data-scramble>something.</span></h2>
+      <div class="contact__rows">
+        <a class="crow" href="mailto:jinnghonng@gmail.com" data-reveal><span>EMAIL</span><b>jinnghonng@gmail.com</b><i>↗</i></a>
+        <a class="crow" href="https://github.com/lowjinghong29" target="_blank" rel="noopener" data-reveal><span>GITHUB</span><b>github.com/lowjinghong29</b><i>↗</i></a>
+        <a class="crow" href="https://www.linkedin.com/in/lowjinghong" target="_blank" rel="noopener" data-reveal><span>LINKEDIN</span><b>in/lowjinghong</b><i>↗</i></a>
+        <a class="crow" href="tel:+60128171129" data-reveal><span>PHONE</span><b>+60 12-817 1129</b><i>↗</i></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <span>© 2026 LOW JING HONG</span>
+    <span class="foot__mid">RENDERED IN ASCII · THREE.JS · GSAP · LENIS</span>
+    <span id="footClock">--:--:--</span>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
