@@ -55,9 +55,18 @@
 
     function layout() {
       const vw = window.innerWidth, vh = window.innerHeight;
-      const box = Math.min(vw * 0.78, vh * 0.64, 700);
+      const phone = vw < 700;
+      const tablet = vw >= 700 && vw < 1100;
+      const landscape = vw > vh && vh < 820;   // short landscape (iPad land)
+      const box = landscape
+        ? Math.min(vw * 0.5, vh * 0.5, 520)     // leave room for bottom name block
+        : phone
+          ? Math.min(vw * 0.96, vh * 0.5, 560)  // phones: fill width, cap height
+          : tablet
+            ? Math.min(vw * 0.86, vh * 0.58, 680) // iPad portrait: larger presence
+            : Math.min(vw * 0.78, vh * 0.64, 700);
       // monospace cell aspect ~0.56 (w/h). keep sculpture square-ish.
-      cols = Math.max(60, Math.min(150, Math.round(box / 7)));
+      cols = Math.max(64, Math.min(150, Math.round(box / 7)));
       rows = Math.round(cols * 0.52);
       sampler.width = cols; sampler.height = rows;
 
@@ -66,10 +75,12 @@
       out.style.fontSize = fs.toFixed(2) + "px";
       out.style.lineHeight = lh.toFixed(2) + "px";
 
-      const rpx = Math.max(180, Math.round(box * 0.55));
+      const rpx = Math.max(220, Math.round(box * 0.6));
       renderer.setSize(rpx, Math.round(rpx * (rows / cols) / 0.52), false);
-      camera.aspect = (rows / cols) / 0.52 ? 1 : 1;
       camera.aspect = 1;
+      // pull the camera closer on smaller screens so the knot fills the
+      // frame with the same presence it has on desktop.
+      camera.position.z = phone ? 6.6 : tablet ? 7.4 : 9;
       camera.updateProjectionMatrix();
     }
     layout();
